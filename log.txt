@@ -1,0 +1,119 @@
+Buildfile: /home/mahith/College/CS 186/CS186-proj1/build.xml
+
+compile:
+
+testcompile:
+
+runsystest:
+    [junit] Running simpledb.systemtest.ScanTest
+    [junit] Testsuite: simpledb.systemtest.ScanTest
+    [junit] Tests run: 3, Failures: 1, Errors: 1, Time elapsed: 0.578 sec
+    [junit] Tests run: 3, Failures: 1, Errors: 1, Time elapsed: 0.578 sec
+    [junit] ------------- Standard Output ---------------
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 2
+    [junit] HF numPages: 2
+    [junit] HF numPages: 2
+    [junit] HF numPages: 8
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 1
+    [junit] HF numPages: 2
+    [junit] HF numPages: 2
+    [junit] HF numPages: 2
+    [junit] HF numPages: 3
+    [junit] HF numPages: 3
+    [junit] HF numPages: 3
+    [junit] HF numPages: 15
+    [junit] HF numPages: 1
+    [junit] HF numPages: 2
+    [junit] HF numPages: 2
+    [junit] HF numPages: 30
+    [junit] HF numPages: 30
+    [junit] ------------- ---------------- ---------------
+    [junit] ------------- Standard Error -----------------
+    [junit] simpledb.DbException: Buffer Pool is full
+    [junit] 	at simpledb.BufferPool.getPage(BufferPool.java:62)
+    [junit] 	at simpledb.HeapFile$HeapFileIterator.hasNext(HeapFile.java:178)
+    [junit] 	at simpledb.SeqScan.hasNext(SeqScan.java:109)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:122)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:107)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:100)
+    [junit] 	at simpledb.systemtest.ScanTest.testCache(ScanTest.java:104)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:616)
+    [junit] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+    [junit] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+    [junit] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+    [junit] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+    [junit] 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+    [junit] 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+    [junit] 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:73)
+    [junit] 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:46)
+    [junit] 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:180)
+    [junit] 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:41)
+    [junit] 	at org.junit.runners.ParentRunner$1.evaluate(ParentRunner.java:173)
+    [junit] 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+    [junit] 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+    [junit] 	at org.junit.runners.ParentRunner.run(ParentRunner.java:220)
+    [junit] 	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:39)
+    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:518)
+    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1052)
+    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:906)
+    [junit] ------------- ---------------- ---------------
+    [junit] 
+    [junit] Testcase: testSmall took 0.317 sec
+    [junit] 	Caused an ERROR
+    [junit] 42
+    [junit] java.lang.ArrayIndexOutOfBoundsException: 42
+    [junit] 	at simpledb.HeapPage.isSlotUsed(HeapPage.java:292)
+    [junit] 	at simpledb.HeapPage.readNextTuple(HeapPage.java:113)
+    [junit] 	at simpledb.HeapPage.<init>(HeapPage.java:55)
+    [junit] 	at simpledb.HeapFile.readPage(HeapFile.java:76)
+    [junit] 	at simpledb.BufferPool.getPage(BufferPool.java:59)
+    [junit] 	at simpledb.HeapFile$HeapFileIterator.open(HeapFile.java:150)
+    [junit] 	at simpledb.SeqScan.open(SeqScan.java:90)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:121)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:107)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:100)
+    [junit] 	at simpledb.systemtest.ScanTest.validateScan(ScanTest.java:33)
+    [junit] 	at simpledb.systemtest.ScanTest.testSmall(ScanTest.java:44)
+    [junit] 
+    [junit] Testcase: testRewind took 0.004 sec
+    [junit] Testcase: testCache took 0.243 sec
+    [junit] 	Caused an ERROR
+    [junit] expected to find the following tuples:
+    [junit] 	781
+    [junit] 	435
+    [junit] 	302
+    [junit] 	541
+    [junit] 	790
+    [junit] 	75
+    [junit] 	887
+    [junit] 	49
+    [junit] 	574
+    [junit] 	178
+    [junit] [9910 more tuples]
+    [junit] java.lang.AssertionError: expected to find the following tuples:
+    [junit] 	781
+    [junit] 	435
+    [junit] 	302
+    [junit] 	541
+    [junit] 	790
+    [junit] 	75
+    [junit] 	887
+    [junit] 	49
+    [junit] 	574
+    [junit] 	178
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:145)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:107)
+    [junit] 	at simpledb.systemtest.SystemTestUtil.matchTuples(SystemTestUtil.java:100)
+    [junit] 	at simpledb.systemtest.ScanTest.testCache(ScanTest.java:104)
+    [junit] 
