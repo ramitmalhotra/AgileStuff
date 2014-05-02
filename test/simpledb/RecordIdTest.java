@@ -1,13 +1,13 @@
 package simpledb;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import junit.framework.JUnit4TestAdapter;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import simpledb.systemtest.SimpleDbTestBase;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
 
 public class RecordIdTest extends SimpleDbTestBase {
 
@@ -33,7 +33,7 @@ public class RecordIdTest extends SimpleDbTestBase {
     @Test public void getPageId() {
         HeapPageId hpid = new HeapPageId(-1, 2);
         assertEquals(hpid, hrid.getPageId());
-
+        assertNotSame(hpid,hrid2.getPageId());
     }
 
     /**
@@ -41,6 +41,7 @@ public class RecordIdTest extends SimpleDbTestBase {
      */
     @Test public void tupleno() {
         assertEquals(3, hrid.tupleno());
+        assertNotSame(4,hrid4.tupleno());
     }
     
     /**
