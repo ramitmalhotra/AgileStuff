@@ -1,15 +1,15 @@
 package simpledb;
 
-import simpledb.systemtest.SimpleDbTestBase;
-import simpledb.systemtest.SystemTestUtil;
-
-import java.util.*;
+import junit.framework.JUnit4TestAdapter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import simpledb.systemtest.SimpleDbTestBase;
+import simpledb.systemtest.SystemTestUtil;
+
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
-import junit.framework.JUnit4TestAdapter;
 
 public class HeapFileReadTest extends SimpleDbTestBase {
     private HeapFile hf;
@@ -51,15 +51,19 @@ public class HeapFileReadTest extends SimpleDbTestBase {
      */
     @Test
     public void getTupleDesc() throws Exception {    	
-        assertEquals(td, hf.getTupleDesc());        
+        assertEquals(td, hf.getTupleDesc());
+        HeapFile other = SystemTestUtil.createRandomHeapFile(3,3,null,null);
+        assertNotSame(td, other.getTupleDesc());
     }
+
     /**
      * Unit test for HeapFile.numPages()
      */
     @Test
     public void numPages() throws Exception {
         assertEquals(1, hf.numPages());
-        // assertEquals(1, empty.numPages());
+        HeapFile other = SystemTestUtil.createRandomHeapFile(3,3,null,null);
+        assertNotSame(3, other.numPages());
     }
 
     /**
@@ -69,13 +73,19 @@ public class HeapFileReadTest extends SimpleDbTestBase {
     public void readPage() throws Exception {
         HeapPageId pid = new HeapPageId(hf.getId(), 0);
         HeapPage page = (HeapPage) hf.readPage(pid);
+        HeapFile other = SystemTestUtil.createRandomHeapFile(3,3,null,null);
 
+        assertNotSame(page, other.readPage(new HeapPageId(other.getId(), 0)));
         // NOTE(ghuo): we try not to dig too deeply into the Page API here; we
         // rely on HeapPageTest for that. perform some basic checks.
         assertEquals(484, page.getNumEmptySlots());
         assertTrue(page.isSlotUsed(1));
         assertFalse(page.isSlotUsed(20));
     }
+
+    /**
+     * Unit test to test Iterator
+     */
 
     @Test
     public void testIteratorBasic() throws Exception {
