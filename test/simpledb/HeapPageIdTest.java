@@ -1,14 +1,12 @@
 package simpledb;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import junit.framework.JUnit4TestAdapter;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import simpledb.systemtest.SimpleDbTestBase;
+import simpledb.systemtest.SystemTestUtil;
+
+import static org.junit.Assert.*;
 
 public class HeapPageIdTest extends SimpleDbTestBase {
 
@@ -21,8 +19,10 @@ public class HeapPageIdTest extends SimpleDbTestBase {
     /**
      * Unit test for HeapPageId.getTableId()
      */
-    @Test public void getTableId() {
+    @Test public void getTableId() throws Exception{
+        HeapFile other = SystemTestUtil.createRandomHeapFile(1, 1, null, null);
         assertEquals(1, pid.getTableId());
+        assertNotSame(other.getId(),pid.getTableId());
     }
 
     /**
